@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import {BrowserRouter, Route,Routes,Navigate } from "react-router-dom";
-import{routes} from "./routes";
+import {BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import{routesLazy} from "./routes";
 import{BuildNavigation} from "./buildNavigation";
 import logo from '../logo.svg';
-const routesNavigation = routes.map((route)=><BuildNavigation key={route.id} route={route}/>);
+const routesNavigation = routesLazy.map((route)=><BuildNavigation key={route.id} route={route}/>);
 
 export const Navigation = () => {
   return (
@@ -17,8 +17,10 @@ export const Navigation = () => {
               </ul>
           </nav>
           <Routes>
-            {routes.map(({id,path,Component})=><Route key={id} path={path} element={<Component/>}/>)}
-            <Route path="/*" element={<Navigate to={routes[0].to} replace/>}/>
+            {
+              routesLazy.map(({id,path,Component})=><Route key={id} path={path} element={<Component/>}/>)
+            }
+            <Route path="/*" element={<Navigate to={routesLazy[0].to} replace/>}/>
           </Routes>
         </div>
       </BrowserRouter>
