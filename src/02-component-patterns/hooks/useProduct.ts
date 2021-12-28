@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { onChangeArgs, Product } from '../interfaces/interfaces';
 interface useProductArgs {
   product:Product,
@@ -7,15 +7,10 @@ interface useProductArgs {
 }
 const useProduct = ({onChange,product,value = 0}: useProductArgs) =>{
    const [counterArticle, setCouterArticle] = useState(value);
-   const isControlled = useRef(!!onChange);
    let currentCounterArticle = 0;
    const increaseBy = (evt:any)=>{
-    if (isControlled.current && onChange){
-      const countNumber = parseInt( evt.target.value);
-      return onChange({count: countNumber, product});
-    }
-    if(counterArticle === 0 && evt.target.name === "button-minus") return setCouterArticle(0);
-    if(evt.target.name === "button-minus"){
+    if (counterArticle === 0 && evt.target.name === "button-minus") return setCouterArticle(0);
+    if (evt.target.name === "button-minus") {
       currentCounterArticle = counterArticle - 1;
       setCouterArticle(currentCounterArticle);
     }else{

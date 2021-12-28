@@ -14,14 +14,14 @@ export const ShoppingPage = () => {
         onChange={onProductCountChange}
         value={shoppingCard[product.id]?.count || 0}
       >
-      <ProductImage
-        className="custom-image"
-        style={{
-          boxShadow:"10px 10px 10px rgba(0,0,0,0.2)"
-        }}
-        />
-      <ProductTitle/>
-      <ProductButtons className="custom-buttons"/>
+        <ProductImage
+          className="custom-image"
+          style={{
+            boxShadow:"10px 10px 10px rgba(0,0,0,0.2)"
+          }}
+          />
+        <ProductTitle/>
+        <ProductButtons className="custom-buttons"/>
       </ProductCard>
   ));
   const productCardObj =  Object.keys(shoppingCard).map((card)=>(
@@ -33,19 +33,19 @@ export const ShoppingPage = () => {
       onChange={onProductCountChange}
       value={shoppingCard[card].count}
     >
-    <ProductImage
-      className="custom-image"
-      style={{
-        boxShadow:"10px 10px 10px rgba(0,0,0,0.2)"
-      }}
-    />
-    <ProductButtons
-      className="custom-buttons"
-      style={{
-        display:"flex",
-        justifyContent:"center"
-      }}
-    />
+      <ProductImage
+        className="custom-image"
+        style={{
+          boxShadow:"10px 10px 10px rgba(0,0,0,0.2)"
+        }}
+      />
+      <ProductButtons
+        className="custom-buttons"
+        style={{
+          display:"flex",
+          justifyContent:"center"
+        }}
+      />
     </ProductCard>
   ));
   return (
