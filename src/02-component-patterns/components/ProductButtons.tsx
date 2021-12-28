@@ -6,13 +6,12 @@ export interface PropsProductButtons{
   style?:CSSProperties
 }
 const ProductButtons =({className, style}:PropsProductButtons)=>{
-   const {useProduct} = useContext(ProductContext);
-   const {increaseBy,counterArticle} = useProduct();
+  const  {increaseBy,counterArticle} = useContext(ProductContext);
   return(
     <div className={`${styles.buttonsContainer} ${className}`} style={style}>
-       <button className={styles.buttonMinus} name="button-minus" onClick={(e)=>increaseBy(e)}>-</button>
+       <button className={styles.buttonMinus} name="button-minus" value={-1} onClick={(e)=>increaseBy(e)}>-</button>
        <div className={`${styles.countLabel}`}>{counterArticle}</div>
-       <button className={styles.buttonAdd} name="button-add" onClick={(e)=>increaseBy(e)}>+</button>
+       <button className={styles.buttonAdd} name="button-add" value={1} onClick={(e)=>increaseBy(e)}>+</button>
     </div>
   );
 };

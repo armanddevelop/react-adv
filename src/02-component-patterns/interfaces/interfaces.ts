@@ -3,7 +3,8 @@ import {PropsProductTitle} from "../components/ProductTitle";
 import {PropsProductButtons} from "../components/ProductButtons";
 import {PropsProductImage} from "../components/ProductImage"
 export interface ProductContextProps{
-  useProduct:Function,
+  counterArticle: number,
+  increaseBy:(evt: any) => void,
   product:Product,
 }
 export interface Product{
@@ -12,10 +13,17 @@ export interface Product{
   img?:string,
   noTitleImage?:string,
 }
+export interface onChangeArgs {
+  product:Product,
+  count:number
+}
 
 export interface ProductCardHOCProps{
   ({ children, product }: ProductCardProps) : JSX.Element,
   Title: (Props: PropsProductTitle) => JSX.Element,
   Image: (Props: PropsProductImage) => JSX.Element,
   Buttons:(Props: PropsProductButtons) => JSX.Element,
+}
+export interface ProductInCart extends Product{
+  count:number,
 }
