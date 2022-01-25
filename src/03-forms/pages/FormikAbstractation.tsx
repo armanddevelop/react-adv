@@ -49,7 +49,7 @@ export const FormikAbstractation = () => {
                 type="text"
               />
               <MyTextInput
-                placeholder="email"
+                placeholder="exmaple@mail.com"
                 name="email"
                 type="email"
               />

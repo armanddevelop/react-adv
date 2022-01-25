@@ -4,7 +4,7 @@ interface MyTextInputProps{
   name:string,
   placeholder?:string,
   [x:string]:any,
-  typesJobs?:Array<string>
+  typesJobs?:Array<Object> | Array<string>
 }
 export const MySelectOptions = (props:MyTextInputProps) => {
   const{label,id,typesJobs,...args}=props;
@@ -17,17 +17,17 @@ export const MySelectOptions = (props:MyTextInputProps) => {
       <label htmlFor={id||args.name}>{label}</label>
       <select {...field}{...args}>
         {
-          typesJobs?.map((job:any,idx:number)=>{
-            if (job === "") {
-              return <option key={idx} value={job}>Select a Option</option>
+          typesJobs?.map(({label,id}:any)=>{
+            if (label === "") {
+              return <option key={id} value={id}>Select a Option</option>
               }
               else {
-                return <option key={idx} value={job}>{job}</option>
+                return <option key={id} value={id}>{label}</option>
               }
           })
         }
       </select>
-     <ErrorMessage name={args.name} component="span"/>
+     <ErrorMessage name={props.name} component="span"/>
     </>
   )
 }

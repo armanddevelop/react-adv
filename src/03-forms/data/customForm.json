@@ -1,0 +1,106 @@
+[
+  {
+    "type": "input",
+    "name": "firstName",
+    "placeholder": "First Name",
+    "label": "FirstName",
+    "value": "",
+    "validations": [
+      {
+        "type": "required",
+        "description": "The field First name is requiered"
+      },
+      {
+        "type": "minLength",
+        "min": 3,
+        "description": "Must be 3 characteres minimum"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "name": "lastName",
+    "placeholder": "Last Name",
+    "label": "Last Name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required",
+        "description": "The Field last name is required"
+      },
+      {
+        "type": "maxLength",
+        "max": 10,
+        "description": "Must be 30 characteres or less"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "example@mail.com",
+    "label": "Email",
+    "value": "",
+    "validations": [
+      {
+        "type": "required",
+        "description": "The field email is required"
+      },
+      {
+        "type": "email",
+        "description": "Invalid Email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "jobType",
+    "placeholder": "",
+    "label": "Job Type",
+    "value": "",
+    "options": [
+      {
+        "id": 0,
+        "label": ""
+      },
+      {
+        "id": 1,
+        "label": "developer"
+      },
+      {
+        "id": 2,
+        "label": "serviceDesk"
+      },
+      {
+        "id": 4,
+        "label": "designer"
+      },
+      {
+        "id": 5,
+        "label": "it-senior"
+      },
+      {
+        "id": 6,
+        "label": "it-junior"
+      }
+    ],
+    "validations": [
+      {
+        "type": "required",
+        "description": "The field Job Type is required"
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "name": "terms",
+    "label": "Terms & conditions",
+    "value": false,
+    "validations": [
+      {
+        "type": "terms",
+        "description": "The field Terms & conditions is required"
+      }
+    ]
+  }
+]
